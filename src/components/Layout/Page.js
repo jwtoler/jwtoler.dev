@@ -1,0 +1,34 @@
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+const Page = ({ children, title, description }) => {
+  const { asPath: pathname } = useRouter();
+
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta content={description} name="description" />
+
+        {/* several domains list the same content, make sure google knows we mean this one. */}
+        <link href={`https://justinwtoler.com${pathname}`} key="canonical" rel="canonical" />
+
+        <link href="/favicon.ico" rel="icon" sizes="any" />
+        <link href="/icon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link href="/site.webmanifest" rel="manifest" />
+
+        {/* Open Graph : https://ogp.me/ */}
+        <meta content={title} property="og:title" />
+        <meta content={description} property="og:description" />
+        <meta content={`https://justinwtoler.com${pathname}`} property="og:url" />
+
+        <meta content={title} name="twitter:title" />
+        <meta content={description} name="twitter:description" />
+      </Head>
+      {children}
+    </>
+  );
+};
+
+export default Page;
