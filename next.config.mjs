@@ -1,21 +1,20 @@
 import { withSentryConfig } from "@sentry/nextjs"
-import { withContentlayer } from "next-contentlayer"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /**compiler: {
-    removeConsole:
-      env.NODE_ENV === "production" ? { exclude: ["error"] } : undefined,
-  },**/
   compress: true,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   swcMinify: true,
-  trailingSlash: false,
-  /*experimental: {
-    ppr: true,
-  }*/
-}
+  trailingSlash: false
+};
+
+const sentryWebpackPluginOptions = {
+  org: "justin-toler",
+  project: "jwtoler-dev",
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: true
+};
 
 const sentryConfig = {
   options: {
@@ -31,10 +30,6 @@ const sentryConfig = {
       project: "jwtoler-dev",
       silent: true,
   },
-}
+};
 
-export default withSentryConfig(
-  withContentlayer(nextConfig),
-  sentryConfig.webpack,
-  sentryConfig.options,
-)
+export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);

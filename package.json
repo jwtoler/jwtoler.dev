@@ -20,6 +20,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@contentlayer/source-files": "^0.3.4",
     "@headlessui/react": "^1.7.7",
     "@sentry/nextjs": "^7.98.0",
     "classnames": "^2.3.2",
@@ -45,10 +46,10 @@
     "@types/webpack-env": "^1.18.0",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
-    "eslint": "^8.0.1",
+    "eslint": "^8.29.0",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-module-resolver": "^1.5.0",
     "eslint-plugin-monorepo": "^0.3.2",

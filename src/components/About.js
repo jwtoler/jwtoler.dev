@@ -6,7 +6,7 @@ import { SectionId } from '../data/siteData';
 import { aboutData } from '../data/aboutData';
 import Section from './Layout/Section';
 
-export const About = () => {
+const About = () => {
   const { profileImage, description, aboutItems } = aboutData;
 
   return (
@@ -40,3 +40,5 @@ export const About = () => {
     </Section>
   );
 };
+
+export default About;
