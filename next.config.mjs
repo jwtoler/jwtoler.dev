@@ -12,9 +12,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: false,
-  experimental: {
+  /*experimental: {
     ppr: true,
-  }
+  }*/
 }
 
 const sentryConfig = {

@@ -2,30 +2,68 @@ name: Continuous integration pipeline
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+
+env:
+  NODE_VERSION: 18
+  PNPM_VERSION: 8.15
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependences
+        uses: ./.github/actions/pnpm-install
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run lint
+          node-version: ${{ env.NODE_VERSION }}
+          pnpm-version: ${{ env.PNPM_VERSION }}
+
+      - name: Lint
+        shell: bash
+        run: pnpm lint
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
   build:
     runs-on: ubuntu-latest
+
     env:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       SENTRY_LOG_LEVEL: info
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependences
+        uses: ./.github/actions/pnpm-install
         with:
-          node-version: 20
-      - run: npm ci
-      - run: npm run build
+          node-version: ${{ env.NODE_VERSION }}
+          pnpm-version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Next.js build caching
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
+      - name: Build
+        shell: bash
+        run: pnpm build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+          BASE_PATH: "/jwtoler.dev"
