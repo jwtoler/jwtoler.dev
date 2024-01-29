@@ -1,6 +1,7 @@
 import 'tailwindcss/tailwind.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-import '../styles/globals.scss';
+
+import '../globals.css';
 
 const MyApp = ({ Component, pageProps }) => {
   return (

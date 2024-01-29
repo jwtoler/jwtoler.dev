@@ -1,13 +1,8 @@
-/* eslint-env node */
-
-module.exports = {
+const config = {
   plugins: {
-    'tailwindcss/nesting': {},
-    tailwindcss: {},
-    autoprefixer: {},
-    'postcss-preset-env': {
-      features: {'nesting-rules': false},
-    },
-    ...(process.env.NODE_ENV === 'production' ? {cssnano: {}} : {}),
+      tailwindcss: {},
+      autoprefixer: {},
   },
 }
+
+module.exports = config
