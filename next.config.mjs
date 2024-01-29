@@ -9,6 +9,15 @@ const nextConfig = {
   trailingSlash: false
 };
 
+const sentryPluginOptions = {
+  automaticVercelMonitors: true,
+  disableLogger: true,
+  hideSourceMaps: true,
+  transpileClientSDK: false,
+  tunnelRoute: "/monitoring",
+  widenClientFileUpload: true,
+};
+
 const sentryWebpackPluginOptions = {
   org: "justin-toler",
   project: "jwtoler-dev",
@@ -16,20 +25,4 @@ const sentryWebpackPluginOptions = {
   silent: true
 };
 
-const sentryConfig = {
-  options: {
-      automaticVercelMonitors: true,
-      disableLogger: true,
-      hideSourceMaps: true,
-      transpileClientSDK: false,
-      tunnelRoute: "/monitoring",
-      widenClientFileUpload: true,
-  },
-  webpack: {
-      org: "justin-toler",
-      project: "jwtoler-dev",
-      silent: true,
-  },
-};
-
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+export default withSentryConfig(nextConfig, sentryWebpackPluginOptions, sentryPluginOptions);
