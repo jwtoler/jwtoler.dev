@@ -17,6 +17,14 @@ const Home = () => {
       <Header />
       <Hero />
       <About />
+      <button
+  type="button"
+  onClick={() => {
+    throw new Error("Sentry Frontend Error");
+  }}
+>
+  Throw error
+</button>
       <Resume />
       <Contact />
     </Page>
