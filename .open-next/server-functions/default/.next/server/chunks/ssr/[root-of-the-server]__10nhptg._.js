@@ -1,0 +1,3 @@
+module.exports=[8171,(a,b,c)=>{b.exports=a.x("react/jsx-runtime",()=>require("react/jsx-runtime"))},44581,a=>a.a(async(b,c)=>{try{let b=await a.y("tailwindcss-4249882c1a74e9c6");a.n(b),c()}catch(a){c(a)}},!0),76695,a=>a.a(async(b,c)=>{try{var d=a.i(8171),e=a.i(44581),f=b([e]);[e]=f.then?(await f)():f,a.s(["default",0,({Component:a,pageProps:b})=>(0,d.jsx)(d.Fragment,{children:(0,d.jsx)(a,{...b})})]),c()}catch(a){c(a)}},!1)];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__10nhptg._.js.map

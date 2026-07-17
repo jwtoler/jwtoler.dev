@@ -1,4 +1,4 @@
-import 'tailwindcss/tailwind.css';
+import 'tailwindcss';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import '../globals.css';
