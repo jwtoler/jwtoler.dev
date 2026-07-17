@@ -18,6 +18,7 @@
   "dependencies": {
     "@contentlayer/source-files": "^0.3.4",
     "@headlessui/react": "^1.7.7",
+    "@sentry/nextjs": "^10.66.0",
     "classnames": "^2.3.2",
     "date-fns": "^3.2.0",
     "eslint": "^10.7.0",
