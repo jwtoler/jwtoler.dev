@@ -2,7 +2,7 @@ allowBuilds:
   '@biomejs/biome': set this to true or false
   '@sentry/cli': true
   '@sentry/profiling-node': set this to true or false
-  contentlayer: set this to true or false
-  esbuild: set this to true or false
-  lefthook: set this to true or false
-  protobufjs: set this to true or false
+  contentlayer: true
+  esbuild: true
+  lefthook: true
+  protobufjs: true
