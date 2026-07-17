@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "my-app",
+  "name": "jwtoler-dev-site",
   // Set this to today's date
   "compatibility_date": "2026-07-17",
   "compatibility_flags": [
